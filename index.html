@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="jquery-3.5.1.min.js"></script>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
+    <script src="/assets/website.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+</html>
+<div class="container-fluid">
+    <button onclick="requestgamestart()" class="myButton">Start</button>
+    <div class="info">
+        <div class="info">Poker</div>
+        <div class="info">
+          <div class="info table">Table</div>
+        <div class="info hand">Hand</div>
+        <div class="info actions">Actions
+        <div class="info">
+          <div class="info">Money: 100</div>
+          <button onclick="skip()" class="action-button">Skip</button>
+          <button onclick="add()" class="action-button">Add</button>
+          <button onclick="addless()" id="addless" class="action-button">-</button>
+          <button onclick="add()" id="moneytoadd" class="action-button">0</button>
+          <button onclick="addmore()" id="addmore" class="action-button">+</button>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

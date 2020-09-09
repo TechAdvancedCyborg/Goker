@@ -1,0 +1,194 @@
+:root {
+    font-family: 'Open Sans';
+    font-size: 200%;
+    --text-primary: #7BBABD;
+    --text-secondary: #189FA3;
+    --bg-primary: #2F2D45;
+    --bg-secondary: #857EBF;
+    --icon-color: #9548ff;
+}
+
+body::-webkit-scrollbar {
+    width: 0.1rem
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--text-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--bg-secondary);
+}
+
+
+
+.container-fluid {
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/*---BUTTON---*/
+.myButton {
+    background-color: var(--background-primary);
+    border-radius: 1vw;
+    border: 1px solid grey;
+    display: inline-block;
+    cursor: pointer;
+    color: grey;
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 5vw;
+    font-family: monospace;
+    animation-name: expand;
+    animation-duration: 4s;
+    letter-spacing: 0.5vw;
+    transition: height 1s ease, font-size 1s ease, width 1s ease;
+}
+.action-button {
+    background-color: var(--background-primary);
+    border-radius: 1vw;
+    border: 1px solid grey;
+    display: inline-block;
+    cursor: pointer;
+    color: grey;
+    width: 15vw;
+    height: 6vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2vw;
+    font-family: monospace;
+    animation-name: expand;
+    animation-duration: 4s;
+    letter-spacing: 0.5vw;
+    transition: height 1s ease, font-size 1s ease, width 1s ease;
+}
+
+
+
+.info {
+    padding: 0.75vw;
+    margin-bottom: 0.75vw;
+    margin-top: 0.75vw;
+    border-radius: 1vw;
+    color: grey;
+    letter-spacing: 0.25vw;
+    animation-name: infoanim;
+    animation-duration: 4s;
+    font-family: monospace;
+    border: 1px solid grey;
+    transition: padding 1s ease, margin 1s ease, height 1s ease;
+}
+
+.log {
+    border-radius: 1vw;
+    text-align: left;
+    letter-spacing: 0.0625vw;
+    animation-name: loganim;
+    animation-duration: 4s;
+    transition: height 1s ease;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    height: 0;
+}
+
+@media (hover: none) {
+    .log {
+        font-size: 25%;
+    }
+}
+
+@media (hover: hover) {
+    .log {
+        font-size: 50%;
+    }
+}
+
+#platform {
+    font-size: 0;
+    opacity: 0;
+    transition: font-size 1s ease, opacity 1s ease;
+}
+
+/*----Scrollbar-----*/
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #000000;
+}
+
+::-webkit-scrollbar-track {
+    background: #666666;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #666666;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #333333;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/*----ANIM-----*/
+
+@keyframes expand {
+    from {
+        letter-spacing: normal;
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+        letter-spacing: 0.5vw;
+    }
+}
+
+@keyframes infoanim {
+    from {
+        letter-spacing: normal;
+        opacity: 0%;
+    }
+
+    to {
+        letter-spacing: 0.25vw;
+        opacity: 100%;
+    }
+}
+
+@keyframes loganim {
+    from {
+        letter-spacing: normal;
+        opacity: 0%;
+    }
+
+    to {
+        letter-spacing: 0.0625vw;
+        opacity: 100%;
+    }
+}
