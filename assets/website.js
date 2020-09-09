@@ -3,6 +3,7 @@ var oldlog = "";
 /* Game Logic/Client */
 var addnumber = 1;
 var money = 100;
+var hasjoined = false;
 function addmore(){
   if (money > addnumber){
     addnumber++;
@@ -27,6 +28,18 @@ function requestgamestart() {
     });
 }
 
+function joingame(){
+  responseax = axios.get(window.location + "/join").then((response) => {
+      if (response.data == "Joined"){
+        hasjoined = true;
+        clearInterval(joingameinterval);
+        console.log("Joined Game!");
+      } else{
+        console.log("Error Joining Game!");
+      }
+  });
+}
+
 function requestlog() {
     log = document.getElementById('log');
     responseax = axios.get(window.location + "/log").then((response) => {
@@ -39,6 +52,7 @@ function requestlog() {
     });
 
 }
+var joingameinterval = setInterval(joingame, 1000);
 // setInterval(requestlog, 2000);
 // setTimeout(updateos, 1000);
 // $(document).ready(updateos);
