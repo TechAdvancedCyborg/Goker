@@ -4,6 +4,8 @@ var oldlog = "";
 var addnumber = 1;
 var money = 100;
 var hasjoined = false;
+var handdata = "";
+
 function addmore(){
   if (money > addnumber){
     addnumber++;
@@ -40,6 +42,18 @@ function joingame(){
   });
 }
 
+function getstatus(){
+  responseax = axios.get(window.location + "/status").then((response) => {
+      document.getElementById("game-status").innerHTML=response.data;
+  });
+}
+function gethand(){
+  responseax = axios.get(window.location + "/hand").then((response) => {
+      document.getElementById("hand").innerHTML=response.data["cards"];
+      handdata = response.data;
+  });
+}
+
 function requestlog() {
     log = document.getElementById('log');
     responseax = axios.get(window.location + "/log").then((response) => {
@@ -53,6 +67,8 @@ function requestlog() {
 
 }
 var joingameinterval = setInterval(joingame, 1000);
+setInterval(getstatus, 1000);
+setInterval(gethand, 1000);
 // setInterval(requestlog, 2000);
 // setTimeout(updateos, 1000);
 // $(document).ready(updateos);
