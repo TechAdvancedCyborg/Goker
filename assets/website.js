@@ -47,6 +47,25 @@ function getstatus(){
       document.getElementById("game-status").innerHTML=response.data;
   });
 }
+
+function getrole(){
+  responseax = axios.get(window.location + "/role").then((response) => {
+      document.getElementById("role").innerHTML=response.data;
+  });
+}
+
+function getrole(){
+  responseax = axios.get(window.location + "/players").then((response) => {
+      document.getElementById("player-count").innerHTML=response.data;
+  });
+}
+
+function getmoney(){
+  responseax = axios.get(window.location + "/money").then((response) => {
+      document.getElementById("money").innerHTML=response.data;
+  });
+}
+
 function gethand(){
   responseax = axios.get(window.location + "/hand").then((response) => {
       document.getElementById("hand").innerHTML=response.data["cards"];
@@ -69,6 +88,9 @@ function requestlog() {
 var joingameinterval = setInterval(joingame, 1000);
 setInterval(getstatus, 1000);
 setInterval(gethand, 1000);
+setInterval(getrole, 1000);
+setInterval(getmoney, 1000);
+setInterval(getplayercount, 1000);
 // setInterval(requestlog, 2000);
 // setTimeout(updateos, 1000);
 // $(document).ready(updateos);

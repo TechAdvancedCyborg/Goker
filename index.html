@@ -17,6 +17,10 @@
     <button onclick="requestgamestart()" class="myButton">Start</button>
     <div class="info">Game Info
       <div id="game-status" class="info">Waiting for players...</div>
+      <div id="player-count" class="info">0/8</div>
+      <div class="info">Role
+      <div id="role" class="info">No role</div>
+      </div>
     </div>
     <div class="info">
         <div class="info">Poker</div>
@@ -27,7 +31,7 @@
         </div></div>
         <div class="info actions">Actions
         <div class="info">
-          <div class="info">Money: 100</div>
+          <div id="money"class="info"></div>
           <button onclick="skip()" class="action-button">Skip</button>
           <button onclick="add()" class="action-button">Add</button>
           <button onclick="addless()" id="addless" class="action-button">-</button>
