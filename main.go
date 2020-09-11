@@ -140,5 +140,5 @@ func main() {
 	http.HandleFunc("/status/", status)
   http.HandleFunc("/hand/",gethand)
 	logtofile("Server started...")
-	http.ListenAndServe(":6941", nil)
+	http.ListenAndServe(":11000", nil)
 }
