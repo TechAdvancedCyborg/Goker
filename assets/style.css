@@ -54,7 +54,7 @@ body::-webkit-scrollbar-thumb {
     display: inline-block;
     cursor: pointer;
     color: grey;
-    width: 15vw;
+    width: 11vw;
     height: 6vw;
     text-align: center;
     text-decoration: none;
