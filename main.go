@@ -28,6 +28,7 @@ var dir = "/"
 var gamestarted = false
 var availablecards = []string{}
 var players = []string{}
+var playersplayinground = []string{}
 var playerhands = [][]poker.Card{}
 var gamestatus = "Waiting for players..."
 var deck = poker.NewDeck()
@@ -37,6 +38,7 @@ var money []int
 var moneyontable = 0
 var turnpos = 0
 var roundnumber = 0
+var minmoneytonotfold = 0
 
 func check(e error) {
 	if e != nil {
@@ -52,6 +54,10 @@ func Find(a []string, x string) int {
 		}
 	}
 	return 0 - 1
+}
+
+func remove(slice []string, s int) []string {
+    return append(slice[:s], slice[s+1:]...)
 }
 
 func buildBuffer(nodes []poker.Card) string {
@@ -114,6 +120,15 @@ func getplayercount(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, strconv.Itoa(len(players))+"/"+strconv.Itoa(maxplayercount))
 }
 
+func getmoneyontable(w http.ResponseWriter, req *http.Request){
+	fmt.Fprintf(w, strconv.Itoa(moneyontable));
+}
+
+func fold(w http.ResponseWriter, req *http.Request){
+	playerindex := Find(playersplayinground, string(strings.Split(string(req.RemoteAddr), ":")[0]))
+	playersplayinground = remove(playersplayinground,playerindex)
+}
+
 func getrole(w http.ResponseWriter, req *http.Request) {
 	if Find(players, string(req.RemoteAddr)) == smallblindpos {
 		fmt.Fprintf(w, "Small blind")
@@ -166,7 +181,8 @@ func status(w http.ResponseWriter, req *http.Request) {
 
 func round() {
 	gamestatus = "Round " + strconv.Itoa(roundnumber)
-	// Make new deck;
+	playersplayinground = players;
+	// Make new deck
 	deck = poker.NewDeck()
 	deck.Shuffle()
 	for index, player := range players {
@@ -205,6 +221,7 @@ func main() {
 	http.HandleFunc("/role/", getrole)
 	http.HandleFunc("/players/", getplayercount)
 	http.HandleFunc("/money/", getmoney)
+	http.HandleFunc("/moneyontable/", getmoneyontable)
 	logtofile("Server started...")
 	http.ListenAndServe(":11000", nil)
 }

@@ -54,7 +54,13 @@ function getrole(){
   });
 }
 
-function getrole(){
+function getmoneyontable(){
+  responseax = axios.get(window.location + "/moneyontable").then((response) => {
+      document.getElementById("table-money").innerHTML=response.data;
+  });
+}
+
+function getplayercount(){
   responseax = axios.get(window.location + "/players").then((response) => {
       document.getElementById("player-count").innerHTML=response.data;
   });
@@ -91,6 +97,7 @@ setInterval(gethand, 1000);
 setInterval(getrole, 1000);
 setInterval(getmoney, 1000);
 setInterval(getplayercount, 1000);
+setInterval(getmoneyontable, 1000);
 // setInterval(requestlog, 2000);
 // setTimeout(updateos, 1000);
 // $(document).ready(updateos);
