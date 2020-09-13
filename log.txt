@@ -1,1 +1,1 @@
-[09-12-2020 09:49:28.6274]: Server starting...<br>[09-12-2020 09:49:28.6275]: Server started...<br>
+[09-12-2020 17:41:29.5419]: Server starting...<br>[09-12-2020 17:41:29.5469]: Server started...<br>[09-12-2020 17:41:32.4681]: Served main page to X.X.X.1:59048<br>[09-12-2020 17:41:32.5306]: Served main page to X.X.X.1:59049<br>[09-12-2020 17:41:32.7409]: Served main page to X.X.X.1:59050<br>[09-12-2020 17:41:33.6451]: Player associated to X.X.X.1:59053 has joined!<br>[09-12-2020 17:41:33.6496]: New player<br>
